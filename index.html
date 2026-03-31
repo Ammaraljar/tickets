@@ -35,92 +35,40 @@
             background: var(--navy);
         }
 
-        /* ========== ANIMATIONS ========== */
         @keyframes slideInFromRight {
-            from {
-                opacity: 0;
-                transform: translateX(100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(100%); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         @keyframes slideOutToLeft {
-            from {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-        }
-
-        @keyframes slideInFromLeft {
-            from {
-                opacity: 0;
-                transform: translateX(-100%);
-            }
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        @keyframes slideOutToRight {
-            from {
-                opacity: 1;
-                transform: translateX(0);
-            }
-            to {
-                opacity: 0;
-                transform: translateX(100%);
-            }
+            from { opacity: 1; transform: translateX(0); }
+            to { opacity: 0; transform: translateX(-100%); }
         }
 
         @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes popIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            50% {
-                transform: scale(1.05);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
+            0% { opacity: 0; transform: scale(0.8); }
+            50% { transform: scale(1.05); }
+            100% { opacity: 1; transform: scale(1); }
         }
 
         @keyframes staggerIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ========== SLIDE CONTAINER ========== */
+        @keyframes pulse {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
         .slide-container {
             width: 100%;
             height: 100%;
-            display: flex;
             position: relative;
         }
 
@@ -142,15 +90,6 @@
             z-index: 10;
         }
 
-        .slide.exit-left {
-            animation: slideOutToLeft 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        .slide.exit-right {
-            animation: slideOutToRight 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-        }
-
-        /* ========== SLIDE HEADER ========== */
         .slide-header {
             background: linear-gradient(135deg, var(--navy) 0%, #003d7a 100%);
             color: var(--gold);
@@ -161,33 +100,17 @@
             border-bottom: 4px solid var(--gold);
         }
 
-        .slide-header::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 300px;
-            height: 300px;
-            background: rgba(212, 175, 55, 0.1);
-            border-radius: 50%;
-            animation: pulse 4s ease-in-out infinite;
-        }
-
         .slide-header h1 {
             font-size: 42px;
             font-weight: 900;
             margin-bottom: 10px;
             font-family: 'Cairo', sans-serif;
-            position: relative;
-            z-index: 1;
             animation: staggerIn 0.6s ease-out;
         }
 
         .slide-header p {
             font-size: 16px;
             color: #e0e0e0;
-            position: relative;
-            z-index: 1;
             animation: staggerIn 0.6s ease-out 0.1s both;
         }
 
@@ -204,7 +127,6 @@
             border: 1px solid var(--gold);
         }
 
-        /* ========== SLIDE CONTENT ========== */
         .slide-content {
             flex: 1;
             padding: 50px;
@@ -246,9 +168,6 @@
             font-weight: 700;
             margin-top: 20px;
             margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .content-section p {
@@ -269,23 +188,15 @@
             margin-bottom: 10px;
             line-height: 1.8;
             font-size: 15px;
-            transition: all 0.3s ease;
         }
 
-        .content-section li:hover {
-            color: var(--gold);
-            transform: translateX(-8px);
-        }
-
-        /* ========== HIGHLIGHT BOX ========== */
         .highlight-box {
             background: linear-gradient(135deg, #fff9e6 0%, #fffbf0 100%);
             border-right: 5px solid var(--gold);
             padding: 20px;
             border-radius: 8px;
             margin: 20px 0;
-            position: relative;
-            animation: slideInFromLeft 0.6s ease-out;
+            animation: slideInFromRight 0.6s ease-out;
         }
 
         .highlight-box strong {
@@ -293,24 +204,14 @@
             font-weight: 700;
             display: block;
             margin-bottom: 10px;
-            font-size: 16px;
         }
 
-        /* ========== CHARTS ========== */
         .chart-container {
             background: var(--white);
             padding: 25px;
             border-radius: 10px;
             margin: 20px 0;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            animation: fadeInScale 0.6s ease-out;
-        }
-
-        .chart-container h4 {
-            color: var(--navy);
-            margin-bottom: 20px;
-            font-weight: 700;
-            text-align: center;
         }
 
         .chart-wrapper {
@@ -319,7 +220,6 @@
             width: 100%;
         }
 
-        /* ========== TABLES ========== */
         table {
             width: 100%;
             border-collapse: collapse;
@@ -328,7 +228,6 @@
             border-radius: 8px;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            animation: slideInFromLeft 0.6s ease-out;
         }
 
         table thead {
@@ -341,7 +240,6 @@
             text-align: right;
             font-weight: 700;
             font-size: 14px;
-            letter-spacing: 0.5px;
         }
 
         table td {
@@ -355,33 +253,6 @@
             background: linear-gradient(135deg, #f9f9f9 0%, #f5f7fa 100%);
         }
 
-        /* ========== IMAGES ========== */
-        .image-container {
-            text-align: center;
-            margin: 20px 0;
-            animation: fadeInScale 0.6s ease-out;
-        }
-
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 8px 25px rgba(0, 31, 63, 0.15);
-            transition: transform 0.3s ease;
-        }
-
-        .image-container img:hover {
-            transform: scale(1.02);
-        }
-
-        .image-caption {
-            color: var(--text-gray);
-            font-size: 13px;
-            margin-top: 10px;
-            font-style: italic;
-        }
-
-        /* ========== NAVIGATION ========== */
         .slide-nav {
             position: fixed;
             bottom: 30px;
@@ -410,7 +281,7 @@
             transition: all 0.3s ease;
         }
 
-        .nav-btn:hover {
+        .nav-btn:hover:not(:disabled) {
             transform: translateY(-3px);
             box-shadow: 0 8px 20px rgba(212, 175, 55, 0.4);
         }
@@ -429,82 +300,32 @@
             font-size: 14px;
         }
 
-        /* ========== QUESTION MODAL ========== */
-        .question-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            z-index: 2000;
+        .question-area {
+            display: flex;
             justify-content: center;
             align-items: center;
-            animation: fadeInScale 0.4s ease-out;
+            min-height: 400px;
         }
 
-        .question-modal.active {
-            display: flex;
-        }
-
-        .question-content {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 50px;
-            max-width: 700px;
-            width: 90%;
-            box-shadow: 0 20px 60px rgba(0, 31, 63, 0.4);
-            animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+        .question-box {
             text-align: center;
-            position: relative;
-            overflow: hidden;
+            width: 100%;
+            max-width: 700px;
         }
 
-        .question-content::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 300px;
-            height: 300px;
-            background: linear-gradient(135deg, var(--gold), transparent);
-            opacity: 0.1;
-            border-radius: 50%;
-        }
-
-        .question-icon {
-            font-size: 60px;
-            margin-bottom: 20px;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .question-content h3 {
+        .question-box h2 {
             color: var(--navy);
-            font-size: 26px;
-            font-weight: 900;
-            margin-bottom: 20px;
-            font-family: 'Cairo', sans-serif;
-            position: relative;
-            z-index: 1;
-        }
-
-        .question-text {
-            color: var(--text-gray);
-            font-size: 17px;
-            line-height: 1.8;
+            font-size: 24px;
             margin-bottom: 30px;
-            position: relative;
-            z-index: 1;
+            border: none;
+            padding: 0;
         }
 
         .question-options {
             display: flex;
             flex-direction: column;
             gap: 12px;
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 1;
+            margin: 30px 0;
         }
 
         .option-btn {
@@ -524,7 +345,6 @@
         .option-btn:hover {
             background: var(--gold);
             border-color: var(--gold);
-            color: var(--navy);
             transform: translateX(-8px);
         }
 
@@ -544,404 +364,32 @@
             color: var(--navy);
             font-size: 16px;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin: 20px 0;
             padding: 15px;
             background: rgba(212, 175, 55, 0.1);
             border-radius: 8px;
             border-right: 4px solid var(--gold);
-            animation: slideInFromLeft 0.5s ease-out;
-            position: relative;
-            z-index: 1;
             display: none;
         }
 
-        .continue-btn {
-            background: linear-gradient(135deg, var(--navy) 0%, #003d7a 100%);
-            color: var(--gold);
-            border: none;
-            padding: 12px 30px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 15px;
-            font-weight: 700;
-            font-family: 'Tajawal', sans-serif;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(0, 31, 63, 0.2);
-            position: relative;
-            z-index: 1;
-            display: none;
+        .feedback-text.show {
+            display: block;
+            animation: popIn 0.5s ease-out;
         }
 
-        .continue-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 31, 63, 0.3);
-        }
-
-        /* ========== ANIMATIONS ========== */
-        @keyframes pulse {
-            0%, 100% { opacity: 0.3; }
-            50% { opacity: 0.6; }
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-
-        /* ========== RESPONSIVE ========== */
         @media (max-width: 768px) {
-            .slide-header {
-                padding: 20px;
-            }
-
             .slide-header h1 {
                 font-size: 28px;
             }
-
             .slide-content {
                 padding: 25px;
-            }
-
-            .question-content {
-                padding: 30px;
-            }
-
-            .slide-nav {
-                bottom: 15px;
-                padding: 10px 15px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Slide Container -->
-    <div class="slide-container" id="slideContainer">
-        <!-- SLIDE 1: Title Slide -->
-        <div class="slide active" id="slide-1">
-            <div class="slide-header" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
-                <div style="text-align: center; animation: popIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);">
-                    <div style="font-size: 80px; margin-bottom: 20px; color: var(--gold);">🌍</div>
-                    <h1 style="font-size: 54px; margin-bottom: 15px;">برنامج التدريب المتكامل</h1>
-                    <p style="font-size: 24px; color: var(--gold); margin-bottom: 20px;">إدارة اللوجستيات والحجوزات المؤسسية</p>
-                    <p style="font-size: 16px; color: #e0e0e0;">5 أيام تدريبية | 20 ساعة | تركيز إداري وعملي فعال</p>
-                    <div style="margin-top: 40px; font-size: 14px; color: var(--gold); font-weight: 700;">
-                        ⏱️ جسور جلوبال - JUSOOR GLOBAL
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="slide-container" id="slideContainer"></div>
 
-        <!-- SLIDE 2: Day 1 - Introduction -->
-        <div class="slide" id="slide-2">
-            <div class="slide-header">
-                <div class="slide-number">الشريحة 2 من 45</div>
-                <h1>اليوم الأول: الإدارة اللوجستية</h1>
-                <p>أسس إدارة حجوزات الطيران والفنادق المؤسسية</p>
-            </div>
-            <div class="slide-content">
-                <div class="content-section">
-                    <h2>🎯 أهداف الجلسة</h2>
-                    <ul>
-                        <li><strong>فهم الفرق الجوهري</strong> بين السفر المؤسسي والسفر الشخصي</li>
-                        <li><strong>إتقان دورة حياة الحجز</strong> من البداية إلى النهاية</li>
-                        <li><strong>تطبيق اللوائح الحكومية</strong> بدقة واحترافية</li>
-                        <li><strong>إدارة المخاطر</strong> والتعامل مع الحالات الطارئة</li>
-                    </ul>
-                </div>
-
-                <div class="content-section">
-                    <h2>📊 السفر المؤسسي مقابل السفر الشخصي</h2>
-                    <p>يختلف السفر المؤسسي الحكومي جذرياً عن ترتيبات السفر الشخصية من حيث الهيكل الإداري والمسؤوليات والالتزامات. في السفر الشخصي، يكون الفرد هو صانع القرار الوحيد والمتحمل الكامل للتكلفة، مما يمنحه مرونة مطلقة في الاختيار. في المقابل، يخضع السفر المؤسسي الحكومي لمنظومة معقدة من اللوائح والسياسات التي تهدف إلى ترشيد الإنفاق العام وضمان الشفافية والمساءلة.</p>
-                    
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>وجه المقارنة</th>
-                                <th>السفر الشخصي</th>
-                                <th>السفر المؤسسي (الحكومي)</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><strong>صنع القرار</strong></td>
-                                <td>مرونة مطلقة - الفرد يقرر كل شيء</td>
-                                <td>مقيد بسياسات وتوجيهات محددة</td>
-                            </tr>
-                            <tr>
-                                <td><strong>التمويل</strong></td>
-                                <td>ميزانية شخصية خاصة</td>
-                                <td>ميزانية عامة (أموال الدولة)</td>
-                            </tr>
-                            <tr>
-                                <td><strong>التوثيق</strong></td>
-                                <td>غير مطلوب</td>
-                                <td>إلزامي ودقيق جداً</td>
-                            </tr>
-                            <tr>
-                                <td><strong>الموافقات</strong></td>
-                                <td>لا توجد موافقات</td>
-                                <td>متعددة المستويات والجهات</td>
-                            </tr>
-                            <tr>
-                                <td><strong>المراقبة</strong></td>
-                                <td>لا توجد مراقبة</td>
-                                <td>مراقبة صارمة من الجهات الرقابية</td>
-                            </tr>
-                            <tr>
-                                <td><strong>الشفافية</strong></td>
-                                <td>خصوصية كاملة</td>
-                                <td>شفافية كاملة وقابلة للتدقيق</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="highlight-box">
-                    <strong>💡 نقطة مهمة:</strong>
-                    <p>إدارة السفر المؤسسي ليست مجرد "حجز تذاكر وفنادق"، بل هي عملية إدارية معقدة تتطلب فهماً عميقاً للوائح، والالتزام بالسياسات، والحفاظ على الشفافية المالية، والتعامل مع ضغوط متعددة.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 3: Day 1 - Booking Lifecycle -->
-        <div class="slide" id="slide-3">
-            <div class="slide-header">
-                <div class="slide-number">الشريحة 3 من 45</div>
-                <h1>دورة حياة الحجز المؤسسي</h1>
-                <p>من الطلب الأولي إلى إغلاق الملف</p>
-            </div>
-            <div class="slide-content">
-                <div class="content-section">
-                    <h2>🔄 المراحل الستة للحجز</h2>
-                    <p>تبدأ دورة حياة الحجز المؤسسي قبل وقت طويل من موعد السفر الفعلي وتستمر حتى بعد عودة الموظف. تتكون هذه الدورة من ست مراحل إدارية متسلسلة يجب إدارتها بكفاءة واحترافية.</p>
-
-                    <div class="chart-container">
-                        <h4>مراحل دورة الحجز</h4>
-                        <div class="chart-wrapper">
-                            <canvas id="bookingLifecycleChart"></canvas>
-                        </div>
-                    </div>
-
-                    <h3>📋 التفاصيل الكاملة لكل مرحلة:</h3>
-
-                    <h3 style="color: var(--navy); margin-top: 25px;">المرحلة الأولى: استلام الطلب والتحقق من الموافقات</h3>
-                    <p>تبدأ العملية بوصول طلب السفر من الموظف أو من إدارته. يجب التأكد من أن الطلب يحتوي على جميع المعلومات المطلوبة ويحمل الموافقات اللازمة من السلطات المختصة. يتضمن ذلك التحقق من:</p>
-                    <ul>
-                        <li>توفر الاعتمادات المالية في الميزانية</li>
-                        <li>موافقة الجهة الرئيسية (وزير أو مدير عام)</li>
-                        <li>مطابقة البيانات الشخصية مع جوازات السفر</li>
-                        <li>تحديد درجة السفر المستحقة للموظف</li>
-                    </ul>
-
-                    <h3 style="color: var(--navy); margin-top: 25px;">المرحلة الثانية: طلب عروض الأسعار من الموردين</h3>
-                    <p>بعد التأكد من الموافقات، يتم التواصل مع شركات السفر والفنادق المعتمدة لطلب عروض أسعار محددة. يجب أن يكون الطلب احترافياً ويتضمن جميع التفاصيل الضرورية.</p>
-
-                    <h3 style="color: var(--navy); margin-top: 25px;">المرحلة الثالثة: تحليل ومقارنة العروض</h3>
-                    <p>عند استقبال العروض، يتم تحليلها بدقة ومقارنتها على أساس معايير محددة مسبقاً. لا يتم الاختيار بناءً على السعر الأقل فقط، بل على أساس القيمة الإجمالية.</p>
-
-                    <h3 style="color: var(--navy); margin-top: 25px;">المرحلة الرابعة: إصدار أوامر الشراء والتأكيد</h3>
-                    <p>بعد اختيار أفضل عرض، يتم إصدار أمر شراء رسمي وتأكيد الحجز مع المورد. يجب الحصول على رقم تأكيد الحجز والتفاصيل الكاملة.</p>
-
-                    <h3 style="color: var(--navy); margin-top: 25px;">المرحلة الخامسة: المتابعة والدعم</h3>
-                    <p>قبل وأثناء السفر، يتم متابعة الحجز والتأكد من عدم وجود مشاكل. يجب توفير دعم فوري للموظف في حالة حدوث أي طارئ.</p>
-
-                    <h3 style="color: var(--navy); margin-top: 25px;">المرحلة السادسة: التسوية المالية وإغلاق الملف</h3>
-                    <p>بعد انتهاء السفر، يتم استقبال الفواتير من الموردين، التحقق منها، وسدادها. يتم توثيق جميع المستندات وإغلاق الملف بشكل نهائي.</p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 4: Question after Slide 3 -->
-        <div class="slide" id="slide-4">
-            <div class="slide-header">
-                <div class="slide-number">سؤال تفاعلي</div>
-                <h1>✅ اختبر فهمك</h1>
-                <p>سؤال عن دورة حياة الحجز</p>
-            </div>
-            <div class="slide-content" style="display: flex; justify-content: center; align-items: center;">
-                <div style="text-align: center; width: 100%; max-width: 600px;">
-                    <div style="font-size: 60px; margin-bottom: 20px;">❓</div>
-                    <h2 style="color: var(--navy); margin-bottom: 20px;">كم عدد مراحل دورة حياة الحجز المؤسسي؟</h2>
-                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 30px;">
-                        <button class="option-btn" onclick="checkAnswer(this, false)">3 مراحل فقط</button>
-                        <button class="option-btn" onclick="checkAnswer(this, true)">6 مراحل</button>
-                        <button class="option-btn" onclick="checkAnswer(this, false)">8 مراحل</button>
-                    </div>
-                    <div id="feedbackArea" style="margin-top: 20px;"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 5: RFP Details -->
-        <div class="slide" id="slide-5">
-            <div class="slide-header">
-                <div class="slide-number">الشريحة 5 من 45</div>
-                <h1>صياغة طلبات عروض الأسعار (RFP)</h1>
-                <p>Request for Proposal - الوثيقة الإدارية الأهم</p>
-            </div>
-            <div class="slide-content">
-                <div class="content-section">
-                    <h2>📝 أهمية طلب عرض السعر</h2>
-                    <p>يعتبر طلب عرض السعر (RFP) الوثيقة الإدارية الأهم في عملية الحجز. يجب أن يتضمن الطلب الاحترافي معلومات تفصيلية دقيقة وتحديد مواعيد نهائية صارمة. جودة هذا الطلب تؤثر بشكل مباشر على جودة العروض المستقبلة.</p>
-
-                    <div class="highlight-box">
-                        <strong>✓ العناصر الأساسية للـ RFP:</strong>
-                        <ul style="margin-top: 12px;">
-                            <li><strong>أسماء المسافرين:</strong> يجب أن تكون مطابقة تماماً لجوازات السفر (نفس الترتيب والتشكيل)</li>
-                            <li><strong>تواريخ وأوقات السفر:</strong> تحديد دقيق للتاريخ والوقت المفضل والبديل</li>
-                            <li><strong>درجات السفر:</strong> تحديد درجة الحجز المستحقة (اقتصادية، بيزنس، إلخ)</li>
-                            <li><strong>مواصفات الإقامة:</strong> نوع الغرفة، الموقع، المرافق المطلوبة</li>
-                            <li><strong>مواعيد نهائية صارمة:</strong> تحديد موعد نهائي واضح للرد على الطلب</li>
-                            <li><strong>متطلبات خاصة:</strong> وجبات، نقل، احتياجات صحية خاصة</li>
-                        </ul>
-                    </div>
-
-                    <h3>📋 مثال على RFP احترافي:</h3>
-                    <p style="background: var(--light-gray); padding: 15px; border-radius: 8px; margin: 15px 0; direction: ltr; text-align: left;">
-                        <strong>Subject: RFP - Flight & Hotel Booking for Official Travel</strong><br>
-                        Dear [Airline/Hotel Name],<br>
-                        We request a quotation for the following travel requirements:<br>
-                        <strong>Passengers:</strong> Mr. Ahmed Al-Mansouri, Ms. Fatima Al-Rashidi<br>
-                        <strong>Travel Dates:</strong> 15-20 May 2026<br>
-                        <strong>Route:</strong> Muscat to London<br>
-                        <strong>Class:</strong> Business Class<br>
-                        <strong>Hotel:</strong> 4-star, Central Location<br>
-                        <strong>Deadline:</strong> 30 April 2026 by 5:00 PM
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 6: Compliance -->
-        <div class="slide" id="slide-6">
-            <div class="slide-header">
-                <div class="slide-number">الشريحة 6 من 45</div>
-                <h1>الامتثال للوائح الحكومية</h1>
-                <p>ضمان الالتزام الصارم بالسياسات</p>
-            </div>
-            <div class="slide-content">
-                <div class="content-section">
-                    <h2>⚖️ أهمية الامتثال</h2>
-                    <p>يعتبر الامتثال للوائح والسياسات الحكومية الركيزة الأساسية لعمل إدارة اللوجستيات. يشمل ذلك الالتزام الصارم بدرجات السفر المحددة وعدم تجاوز السقوف المالية (Per Diem).</p>
-
-                    <div class="chart-container">
-                        <h4>نسبة الامتثال في الجهات الحكومية</h4>
-                        <div class="chart-wrapper">
-                            <canvas id="complianceChart"></canvas>
-                        </div>
-                    </div>
-
-                    <div class="highlight-box">
-                        <strong>⚠️ نقاط الامتثال الحرجة:</strong>
-                        <ul style="margin-top: 12px;">
-                            <li><strong>احترام درجات السفر:</strong> يجب عدم تجاوز درجة السفر المحددة حسب المستوى الوظيفي</li>
-                            <li><strong>عدم تجاوز السقوف المالية:</strong> الالتزام بالحد الأقصى للإنفاق على الإقامة والوجبات</li>
-                            <li><strong>إعطاء الأولوية للناقل الوطني:</strong> استخدام الخطوط الجوية الوطنية عند توفر خدمة مماثلة</li>
-                            <li><strong>توثيق الاستثناءات:</strong> أي انحراف عن السياسة يجب أن يكون موثقاً ومعتمداً</li>
-                            <li><strong>الشفافية الكاملة:</strong> توثيق جميع التكاليف والعروض والقرارات</li>
-                        </ul>
-                    </div>
-
-                    <h3>📊 جدول درجات السفر المعتمدة:</h3>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>المستوى الوظيفي</th>
-                                <th>درجة الطيران</th>
-                                <th>فئة الفندق</th>
-                                <th>السقف اليومي للإقامة</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>وزير / مدير عام</td>
-                                <td>First Class</td>
-                                <td>5 نجوم</td>
-                                <td>300 دولار</td>
-                            </tr>
-                            <tr>
-                                <td>نائب مدير / مدير إدارة</td>
-                                <td>Business Class</td>
-                                <td>4 نجوم</td>
-                                <td>200 دولار</td>
-                            </tr>
-                            <tr>
-                                <td>موظف متقدم</td>
-                                <td>Economy Plus</td>
-                                <td>3-4 نجوم</td>
-                                <td>150 دولار</td>
-                            </tr>
-                            <tr>
-                                <td>موظف عادي</td>
-                                <td>Economy</td>
-                                <td>3 نجوم</td>
-                                <td>100 دولار</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-        <!-- Continue with more slides... -->
-        <!-- For brevity, I'll add a few more key slides -->
-
-        <!-- SLIDE 7: Risk Management -->
-        <div class="slide" id="slide-7">
-            <div class="slide-header">
-                <div class="slide-number">الشريحة 7 من 45</div>
-                <h1>إدارة المخاطر في السفر</h1>
-                <p>التعامل مع الحالات الطارئة والطوارئ</p>
-            </div>
-            <div class="slide-content">
-                <div class="content-section">
-                    <h2>🛡️ أنواع المخاطر</h2>
-                    <p>لا يقتصر دور إدارة اللوجستيات على إجراء الحجوزات، بل يمتد ليشمل إدارة المخاطر المرتبطة بالسفر. يتضمن ذلك الاستعداد للتعامل مع الإلغاءات المفاجئة والتعديلات الطارئة والحالات الصحية الطارئة.</p>
-
-                    <h3>📋 استراتيجيات إدارة المخاطر:</h3>
-                    <ul>
-                        <li><strong>فهم قواعد التذاكر (Fare Rules):</strong> اختيار أنواع حجوزات مرنة تسمح بالتعديل والإلغاء</li>
-                        <li><strong>التغطية التأمينية:</strong> ضمان التغطية التأمينية المناسبة للموظفين ضد المخاطر الصحية والحوادث</li>
-                        <li><strong>متابعة التحذيرات:</strong> مراقبة التحذيرات الأمنية والصحية للوجهات</li>
-                        <li><strong>خطط الطوارئ:</strong> وضع خطط بديلة للتواصل مع الموظفين في حالات الطوارئ</li>
-                        <li><strong>التأمين السفر:</strong> الحصول على تأمين سفر شامل يغطي الإلغاء والتأخير</li>
-                    </ul>
-
-                    <div class="image-container">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Crect fill='%23f5f7fa' width='400' height='300'/%3E%3Ctext x='50%' y='50%' font-size='24' text-anchor='middle' dominant-baseline='middle' fill='%23999'%3Eرسم توضيحي: إدارة المخاطر%3C/text%3E%3C/svg%3E" alt="Risk Management" style="width: 100%; max-width: 400px;">
-                        <p class="image-caption">مخطط توضيحي لعملية إدارة المخاطر في السفر المؤسسي</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- SLIDE 8: Question -->
-        <div class="slide" id="slide-8">
-            <div class="slide-header">
-                <div class="slide-number">سؤال تفاعلي</div>
-                <h1>✅ اختبر فهمك</h1>
-                <p>سؤال عن الامتثال</p>
-            </div>
-            <div class="slide-content" style="display: flex; justify-content: center; align-items: center;">
-                <div style="text-align: center; width: 100%; max-width: 600px;">
-                    <div style="font-size: 60px; margin-bottom: 20px;">❓</div>
-                    <h2 style="color: var(--navy); margin-bottom: 20px;">ما هو السقف اليومي للإقامة لموظف متقدم؟</h2>
-                    <div style="display: flex; flex-direction: column; gap: 12px; margin-top: 30px;">
-                        <button class="option-btn" onclick="checkAnswer(this, false)">100 دولار</button>
-                        <button class="option-btn" onclick="checkAnswer(this, true)">150 دولار</button>
-                        <button class="option-btn" onclick="checkAnswer(this, false)">200 دولار</button>
-                    </div>
-                    <div id="feedbackArea2" style="margin-top: 20px;"></div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Additional slides would continue here... -->
-        <!-- For the sake of this example, I'm showing the structure -->
-
-    </div>
-
-    <!-- Navigation Controls -->
     <div class="slide-nav">
         <button class="nav-btn" id="prevBtn" onclick="previousSlide()">← السابق</button>
         <div class="slide-counter">
@@ -951,8 +399,961 @@
     </div>
 
     <script>
+        const slidesData = [
+            {
+                id: 1,
+                type: 'title',
+                title: 'برنامج التدريب المتكامل',
+                subtitle: 'إدارة اللوجستيات والحجوزات المؤسسية',
+                description: '5 أيام تدريبية | 20 ساعة | تركيز إداري وعملي فعال',
+                footer: '⏱️ جسور جلوبال - JUSOOR GLOBAL'
+            },
+            {
+                id: 2,
+                type: 'content',
+                title: 'اليوم الأول: الإدارة اللوجستية',
+                subtitle: 'أسس إدارة حجوزات الطيران والفنادق المؤسسية',
+                content: `
+                    <div class="content-section">
+                        <h2>🎯 أهداف الجلسة</h2>
+                        <ul>
+                            <li><strong>فهم الفرق الجوهري</strong> بين السفر المؤسسي والسفر الشخصي</li>
+                            <li><strong>إتقان دورة حياة الحجز</strong> من البداية إلى النهاية</li>
+                            <li><strong>تطبيق اللوائح الحكومية</strong> بدقة واحترافية</li>
+                            <li><strong>إدارة المخاطر</strong> والتعامل مع الحالات الطارئة</li>
+                        </ul>
+                    </div>
+                    <div class="content-section">
+                        <h2>📊 السفر المؤسسي مقابل السفر الشخصي</h2>
+                        <p>يختلف السفر المؤسسي الحكومي جذرياً عن ترتيبات السفر الشخصية من حيث الهيكل الإداري والمسؤوليات والالتزامات. في السفر الشخصي، يكون الفرد هو صانع القرار الوحيد والمتحمل الكامل للتكلفة، مما يمنحه مرونة مطلقة في الاختيار.</p>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>وجه المقارنة</th>
+                                    <th>السفر الشخصي</th>
+                                    <th>السفر المؤسسي</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>صنع القرار</strong></td>
+                                    <td>مرونة مطلقة</td>
+                                    <td>مقيد بسياسات محددة</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>التمويل</strong></td>
+                                    <td>ميزانية شخصية</td>
+                                    <td>ميزانية عامة</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>التوثيق</strong></td>
+                                    <td>غير مطلوب</td>
+                                    <td>إلزامي ودقيق</td>
+                                </tr>
+                                <tr>
+                                    <td><strong>الموافقات</strong></td>
+                                    <td>لا توجد</td>
+                                    <td>متعددة المستويات</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `
+            },
+            {
+                id: 3,
+                type: 'content',
+                title: 'دورة حياة الحجز المؤسسي',
+                subtitle: 'من الطلب الأولي إلى إغلاق الملف',
+                content: `
+                    <div class="content-section">
+                        <h2>🔄 المراحل الستة للحجز</h2>
+                        <p>تبدأ دورة حياة الحجز المؤسسي قبل وقت طويل من موعد السفر الفعلي وتستمر حتى بعد عودة الموظف.</p>
+                        <h3>المرحلة الأولى: استلام الطلب والتحقق من الموافقات</h3>
+                        <p>تبدأ العملية بوصول طلب السفر من الموظف. يجب التأكد من أن الطلب يحتوي على جميع المعلومات المطلوبة ويحمل الموافقات اللازمة.</p>
+                        <h3>المرحلة الثانية: طلب عروض الأسعار من الموردين</h3>
+                        <p>بعد التأكد من الموافقات، يتم التواصل مع شركات السفر والفنادق المعتمدة لطلب عروض أسعار محددة.</p>
+                        <h3>المرحلة الثالثة: تحليل ومقارنة العروض</h3>
+                        <p>عند استقبال العروض، يتم تحليلها بدقة ومقارنتها على أساس معايير محددة مسبقاً.</p>
+                        <h3>المرحلة الرابعة: إصدار أوامر الشراء والتأكيد</h3>
+                        <p>بعد اختيار أفضل عرض، يتم إصدار أمر شراء رسمي وتأكيد الحجز مع المورد.</p>
+                        <h3>المرحلة الخامسة: المتابعة والدعم</h3>
+                        <p>قبل وأثناء السفر، يتم متابعة الحجز والتأكد من عدم وجود مشاكل.</p>
+                        <h3>المرحلة السادسة: التسوية المالية وإغلاق الملف</h3>
+                        <p>بعد انتهاء السفر، يتم استقبال الفواتير والتحقق منها وسدادها.</p>
+                    </div>
+                `
+            },
+            {
+                id: 4,
+                type: 'question',
+                question: 'كم عدد مراحل دورة حياة الحجز المؤسسي؟',
+                options: [
+                    { text: '3 مراحل فقط', correct: false },
+                    { text: '6 مراحل', correct: true },
+                    { text: '8 مراحل', correct: false }
+                ]
+            },
+            {
+                id: 5,
+                type: 'content',
+                title: 'صياغة طلبات عروض الأسعار (RFP)',
+                subtitle: 'Request for Proposal - الوثيقة الإدارية الأهم',
+                content: `
+                    <div class="content-section">
+                        <h2>📝 أهمية طلب عرض السعر</h2>
+                        <p>يعتبر طلب عرض السعر (RFP) الوثيقة الإدارية الأهم في عملية الحجز. يجب أن يتضمن الطلب الاحترافي معلومات تفصيلية دقيقة.</p>
+                        <div class="highlight-box">
+                            <strong>✓ العناصر الأساسية للـ RFP:</strong>
+                            <ul style="margin-top: 12px;">
+                                <li><strong>أسماء المسافرين:</strong> مطابقة تماماً لجوازات السفر</li>
+                                <li><strong>تواريخ وأوقات السفر:</strong> تحديد دقيق للتاريخ والوقت</li>
+                                <li><strong>درجات السفر:</strong> تحديد درجة الحجز المستحقة</li>
+                                <li><strong>مواصفات الإقامة:</strong> نوع الغرفة والموقع والمرافق</li>
+                                <li><strong>مواعيد نهائية صارمة:</strong> تحديد موعد نهائي واضح للرد</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 6,
+                type: 'content',
+                title: 'الامتثال للوائح الحكومية',
+                subtitle: 'ضمان الالتزام الصارم بالسياسات',
+                content: `
+                    <div class="content-section">
+                        <h2>⚖️ أهمية الامتثال</h2>
+                        <p>يعتبر الامتثال للوائح والسياسات الحكومية الركيزة الأساسية لعمل إدارة اللوجستيات.</p>
+                        <div class="highlight-box">
+                            <strong>⚠️ نقاط الامتثال الحرجة:</strong>
+                            <ul style="margin-top: 12px;">
+                                <li><strong>احترام درجات السفر:</strong> عدم تجاوز درجة السفر المحددة</li>
+                                <li><strong>عدم تجاوز السقوف المالية:</strong> الالتزام بالحد الأقصى</li>
+                                <li><strong>الأولوية للناقل الوطني:</strong> استخدام الخطوط الجوية الوطنية</li>
+                                <li><strong>توثيق الاستثناءات:</strong> أي انحراف يجب أن يكون موثقاً</li>
+                            </ul>
+                        </div>
+                        <h3>📊 جدول درجات السفر المعتمدة:</h3>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>المستوى الوظيفي</th>
+                                    <th>درجة الطيران</th>
+                                    <th>فئة الفندق</th>
+                                    <th>السقف اليومي</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>وزير</td>
+                                    <td>First Class</td>
+                                    <td>5 نجوم</td>
+                                    <td>300 دولار</td>
+                                </tr>
+                                <tr>
+                                    <td>نائب مدير</td>
+                                    <td>Business</td>
+                                    <td>4 نجوم</td>
+                                    <td>200 دولار</td>
+                                </tr>
+                                <tr>
+                                    <td>موظف متقدم</td>
+                                    <td>Economy Plus</td>
+                                    <td>3-4 نجوم</td>
+                                    <td>150 دولار</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                `
+            },
+            {
+                id: 7,
+                type: 'question',
+                question: 'ما هو السقف اليومي للإقامة لموظف متقدم؟',
+                options: [
+                    { text: '100 دولار', correct: false },
+                    { text: '150 دولار', correct: true },
+                    { text: '200 دولار', correct: false }
+                ]
+            },
+            {
+                id: 8,
+                type: 'content',
+                title: 'إدارة المخاطر في السفر',
+                subtitle: 'التعامل مع الحالات الطارئة والطوارئ',
+                content: `
+                    <div class="content-section">
+                        <h2>🛡️ أنواع المخاطر</h2>
+                        <p>لا يقتصر دور إدارة اللوجستيات على إجراء الحجوزات، بل يمتد ليشمل إدارة المخاطر المرتبطة بالسفر.</p>
+                        <h3>📋 استراتيجيات إدارة المخاطر:</h3>
+                        <ul>
+                            <li><strong>فهم قواعد التذاكر:</strong> اختيار أنواع حجوزات مرنة</li>
+                            <li><strong>التغطية التأمينية:</strong> ضمان التغطية المناسبة</li>
+                            <li><strong>متابعة التحذيرات:</strong> مراقبة التحذيرات الأمنية والصحية</li>
+                            <li><strong>خطط الطوارئ:</strong> وضع خطط بديلة</li>
+                            <li><strong>التأمين السفر:</strong> الحصول على تأمين شامل</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 9,
+                type: 'content',
+                title: 'اليوم الثاني: مهارات التفاوض',
+                subtitle: 'المبيعات العكسية والتفاوض مع الموردين',
+                content: `
+                    <div class="content-section">
+                        <h2>💼 مقدمة في التفاوض</h2>
+                        <p>التفاوض مع الموردين (شركات الطيران والفنادق) هو مهارة حاسمة في إدارة اللوجستيات. يجب أن يكون لديك فهم عميق لقيمة الخدمات وقدرتك على إقناع الموردين بتقديم أفضل عرض.</p>
+                        <h3>🎯 أهداف التفاوض:</h3>
+                        <ul>
+                            <li>الحصول على أفضل سعر ممكن</li>
+                            <li>ضمان جودة الخدمة</li>
+                            <li>بناء علاقات طويلة الأمد مع الموردين</li>
+                            <li>الحصول على شروط دفع مرنة</li>
+                            <li>توفير خدمات إضافية بدون تكاليف إضافية</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 10,
+                type: 'question',
+                question: 'ما هو الهدف الأساسي من التفاوض مع الموردين؟',
+                options: [
+                    { text: 'رفع الأسعار فقط', correct: false },
+                    { text: 'الحصول على أفضل سعر وجودة', correct: true },
+                    { text: 'تقليل عدد الموردين', correct: false }
+                ]
+            },
+            {
+                id: 11,
+                type: 'content',
+                title: 'استراتيجيات التفاوض الفعالة',
+                subtitle: 'تقنيات متقدمة للحصول على أفضل العروض',
+                content: `
+                    <div class="content-section">
+                        <h2>🎓 استراتيجيات التفاوض</h2>
+                        <h3>1. استراتيجية المقارنة (Benchmarking)</h3>
+                        <p>قارن الأسعار والخدمات بين عدة موردين. هذا يعطيك نقطة انطلاق قوية في التفاوض.</p>
+                        <h3>2. استراتيجية الحجم (Volume Strategy)</h3>
+                        <p>استخدم حجم الحجوزات السنوية كأداة تفاوضية. الموردون يفضلون العملاء الذين يجلبون حجماً كبيراً من الأعمال.</p>
+                        <h3>3. استراتيجية الوقت (Timing Strategy)</h3>
+                        <p>تفاوض في أوقات معينة من السنة عندما يكون الطلب منخفضاً والموردون أكثر استعداداً للتنازل.</p>
+                        <h3>4. استراتيجية الحزمة (Package Strategy)</h3>
+                        <p>اطلب حزماً مدمجة (طيران + فندق + نقل) بسعر أقل من الحجز المنفصل.</p>
+                    </div>
+                `
+            },
+            {
+                id: 12,
+                type: 'content',
+                title: 'المبيعات العكسية (Reverse Sales)',
+                subtitle: 'كيف تقنع الموردين بتقديم أفضل عرض',
+                content: `
+                    <div class="content-section">
+                        <h2>🔄 مفهوم المبيعات العكسية</h2>
+                        <p>في المبيعات العكسية، أنت لا تشتري الخدمة من المورد، بل تقنع المورد بأن يقدم لك أفضل عرض ممكن. أنت تحتل موقع القوة.</p>
+                        <div class="highlight-box">
+                            <strong>✓ خطوات المبيعات العكسية:</strong>
+                            <ul style="margin-top: 12px;">
+                                <li><strong>1. حدد احتياجاتك بوضوح:</strong> قدم طلباً دقيقاً يسهل على الموردين الرد عليه</li>
+                                <li><strong>2. اطلب عروضاً متعددة:</strong> لا تقبل أول عرض</li>
+                                <li><strong>3. قارن وحلل:</strong> استخدم جدول مقارنة واضح</li>
+                                <li><strong>4. تفاوض بذكاء:</strong> استخدم الأسعار الأخرى كنقطة مرجعية</li>
+                                <li><strong>5. اطلب تحسينات:</strong> اطلب خدمات إضافية بدون تكاليف إضافية</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 13,
+                type: 'question',
+                question: 'في المبيعات العكسية، من يحتل موقع القوة؟',
+                options: [
+                    { text: 'المورد (شركة الطيران)', correct: false },
+                    { text: 'المشتري (إدارة اللوجستيات)', correct: true },
+                    { text: 'كلاهما متساوي', correct: false }
+                ]
+            },
+            {
+                id: 14,
+                type: 'content',
+                title: 'إدارة علاقات الموردين',
+                subtitle: 'بناء شراكات طويلة الأمد',
+                content: `
+                    <div class="content-section">
+                        <h2>🤝 أهمية علاقات الموردين</h2>
+                        <p>لا تعامل الموردين كمجرد بائعين، بل كشركاء استراتيجيين. العلاقات الجيدة مع الموردين تؤدي إلى:</p>
+                        <ul>
+                            <li>أسعار أفضل وشروط دفع مرنة</li>
+                            <li>أولوية في الحجوزات خلال فترات الذروة</li>
+                            <li>خدمات إضافية وحلول مخصصة</li>
+                            <li>دعم فوري في حالات الطوارئ</li>
+                            <li>معلومات حصرية عن العروض الجديدة</li>
+                        </ul>
+                        <h3>💡 نصائح لبناء علاقات قوية:</h3>
+                        <ul>
+                            <li>كن احترافياً وملتزماً في التعامل</li>
+                            <li>سدد الفواتير في الموعد المحدد</li>
+                            <li>قدم تغذية راجعة بناءة</li>
+                            <li>احتفل بنجاحات الموردين</li>
+                            <li>تواصل بانتظام وليس فقط عند الحاجة</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 15,
+                type: 'question',
+                question: 'ما هي فائدة العلاقات الجيدة مع الموردين؟',
+                options: [
+                    { text: 'أسعار أفضل فقط', correct: false },
+                    { text: 'أسعار أفضل وخدمات إضافية وأولوية في الحجوزات', correct: true },
+                    { text: 'لا توجد فوائد حقيقية', correct: false }
+                ]
+            },
+            {
+                id: 16,
+                type: 'content',
+                title: 'اليوم الثالث: التواصل والعلاقات',
+                subtitle: 'التميز في التواصل وإدارة العلاقات المؤسسية',
+                content: `
+                    <div class="content-section">
+                        <h2>💬 أهمية التواصل الفعال</h2>
+                        <p>التواصل الفعال هو أساس نجاح إدارة اللوجستيات. يجب أن تكون قادراً على التواصل بوضوح مع:</p>
+                        <ul>
+                            <li>الموظفين المسافرين</li>
+                            <li>الموردين (شركات الطيران والفنادق)</li>
+                            <li>الإدارة العليا</li>
+                            <li>الجهات الحكومية والرقابية</li>
+                        </ul>
+                        <h3>🎯 مبادئ التواصل الفعال:</h3>
+                        <ul>
+                            <li><strong>الوضوح:</strong> استخدم لغة واضحة وسهلة الفهم</li>
+                            <li><strong>الاختصار:</strong> قدم المعلومات بإيجاز دون حذف التفاصيل المهمة</li>
+                            <li><strong>الاحترافية:</strong> استخدم لغة احترافية في جميع التواصلات</li>
+                            <li><strong>الاستجابة السريعة:</strong> رد على الاستفسارات بسرعة</li>
+                            <li><strong>الاستماع الفعال:</strong> استمع لاحتياجات الآخرين وفهمها</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 17,
+                type: 'content',
+                title: 'الذكاء العاطفي في العمل',
+                subtitle: 'فهم وإدارة المشاعر في البيئة المؤسسية',
+                content: `
+                    <div class="content-section">
+                        <h2>❤️ مفهوم الذكاء العاطفي</h2>
+                        <p>الذكاء العاطفي هو القدرة على فهم وإدارة مشاعرك ومشاعر الآخرين. في إدارة اللوجستيات، هذا مهم جداً لأنك تتعامل مع:</p>
+                        <ul>
+                            <li>موظفين قد يكونون متوترين بشأن رحلاتهم</li>
+                            <li>موردين قد يكونون تحت ضغط</li>
+                            <li>مديرين قد يكونون قلقين بشأن الميزانية</li>
+                        </ul>
+                        <h3>🧠 مكونات الذكاء العاطفي:</h3>
+                        <ul>
+                            <li><strong>الوعي الذاتي:</strong> فهم مشاعرك وتأثيرها على الآخرين</li>
+                            <li><strong>إدارة الذات:</strong> التحكم في ردود أفعالك</li>
+                            <li><strong>الوعي الاجتماعي:</strong> فهم مشاعر الآخرين</li>
+                            <li><strong>إدارة العلاقات:</strong> بناء علاقات إيجابية</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 18,
+                type: 'question',
+                question: 'أي من التالي ليس من مكونات الذكاء العاطفي؟',
+                options: [
+                    { text: 'الوعي الذاتي', correct: false },
+                    { text: 'إدارة الذات', correct: false },
+                    { text: 'الحسابات المالية', correct: true }
+                ]
+            },
+            {
+                id: 19,
+                type: 'content',
+                title: 'التعامل مع الشكاوى والمشاكل',
+                subtitle: 'حل النزاعات بكفاءة واحترافية',
+                content: `
+                    <div class="content-section">
+                        <h2>⚡ إدارة الأزمات والشكاوى</h2>
+                        <p>في أي عملية حجز، قد تحدث مشاكل. المهم هو كيفية التعامل معها:</p>
+                        <h3>📋 خطوات حل المشاكل:</h3>
+                        <ul>
+                            <li><strong>1. استمع بتركيز:</strong> افهم المشكلة بالكامل قبل الرد</li>
+                            <li><strong>2. اعتذر إذا لزم الأمر:</strong> لا تدافع عن الخطأ</li>
+                            <li><strong>3. اتخذ إجراء فوري:</strong> لا تؤجل حل المشكلة</li>
+                            <li><strong>4. متابعة:</strong> تأكد من رضا الطرف الآخر</li>
+                            <li><strong>5. التعلم:</strong> استخدم المشكلة لتحسين العمليات</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <strong>💡 نصيحة ذهبية:</strong>
+                            <p>المشاكل ليست نهاية العالم، بل هي فرصة لإظهار احترافيتك وبناء علاقات أقوى مع الآخرين.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 20,
+                type: 'question',
+                question: 'ما هي الخطوة الأولى في حل المشاكل؟',
+                options: [
+                    { text: 'الدفاع عن نفسك', correct: false },
+                    { text: 'الاستماع بتركيز وفهم المشكلة', correct: true },
+                    { text: 'إلقاء اللوم على الآخرين', correct: false }
+                ]
+            },
+            {
+                id: 21,
+                type: 'content',
+                title: 'اليوم الرابع: إدارة الفرق',
+                subtitle: 'تنسيق العمليات وقيادة فريق العمل',
+                content: `
+                    <div class="content-section">
+                        <h2>👥 أهمية إدارة الفرق</h2>
+                        <p>إذا كنت تعمل في فريق (حتى لو كان صغيراً)، يجب أن تكون قادراً على تنسيق العمل وتحفيز الآخرين.</p>
+                        <h3>🎯 مسؤوليات قائد الفريق:</h3>
+                        <ul>
+                            <li>توزيع المهام بعدالة وكفاءة</li>
+                            <li>تحديد أهداف واضحة للفريق</li>
+                            <li>توفير الدعم والموارد اللازمة</li>
+                            <li>تقييم الأداء بشفافية</li>
+                            <li>تطوير مهارات أعضاء الفريق</li>
+                            <li>بناء ثقافة عمل إيجابية</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 22,
+                type: 'content',
+                title: 'أنماط القيادة المختلفة',
+                subtitle: 'اختيار النمط المناسب للموقف',
+                content: `
+                    <div class="content-section">
+                        <h2>🎓 أنماط القيادة</h2>
+                        <h3>1. القيادة الديمقراطية</h3>
+                        <p>تشرك أعضاء الفريق في صنع القرارات. مناسبة للفرق المتقدمة والمتعلمة.</p>
+                        <h3>2. القيادة الموجهة</h3>
+                        <p>توجه واضح من القائد. مناسبة للمهام الحرجة والمواعيد النهائية الضيقة.</p>
+                        <h3>3. القيادة الداعمة</h3>
+                        <p>تركز على دعم وتطوير أعضاء الفريق. مناسبة للموظفين الجدد.</p>
+                        <h3>4. القيادة المشاركة</h3>
+                        <p>تشجع على المشاركة والتعاون. مناسبة للفرق المتنوعة.</p>
+                        <div class="highlight-box">
+                            <strong>💡 الحكمة:</strong>
+                            <p>القائد الناجح يستخدم جميع الأنماط حسب الموقف والفريق والمهمة.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 23,
+                type: 'question',
+                question: 'أي نمط قيادة مناسب للمهام الحرجة والمواعيد النهائية الضيقة؟',
+                options: [
+                    { text: 'القيادة الديمقراطية', correct: false },
+                    { text: 'القيادة الموجهة', correct: true },
+                    { text: 'القيادة الداعمة', correct: false }
+                ]
+            },
+            {
+                id: 24,
+                type: 'content',
+                title: 'التدريب والتطوير المستمر',
+                subtitle: 'بناء فريق قوي ومتطور',
+                content: `
+                    <div class="content-section">
+                        <h2>📚 أهمية التطوير المستمر</h2>
+                        <p>السوق والتكنولوجيا تتغير باستمرار. يجب أن تستثمر في تطوير مهارات فريقك.</p>
+                        <h3>🎯 مجالات التطوير:</h3>
+                        <ul>
+                            <li><strong>المهارات التقنية:</strong> استخدام الأنظمة والبرامج الجديدة</li>
+                            <li><strong>المهارات الناعمة:</strong> التواصل والقيادة والتفاوض</li>
+                            <li><strong>المعرفة الصناعية:</strong> فهم أعمق للسفر والسياحة</li>
+                            <li><strong>الامتثال والأنظمة:</strong> فهم اللوائح الجديدة</li>
+                        </ul>
+                        <h3>💡 طرق التطوير:</h3>
+                        <ul>
+                            <li>الدورات التدريبية الرسمية</li>
+                            <li>ورش العمل والندوات</li>
+                            <li>التعلم من الأقران</li>
+                            <li>المشاريع الخاصة والتحديات</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 25,
+                type: 'question',
+                question: 'ما هو أحد مجالات التطوير المهم للفريق؟',
+                options: [
+                    { text: 'المهارات التقنية والناعمة', correct: true },
+                    { text: 'الرياضة فقط', correct: false },
+                    { text: 'الهوايات الشخصية', correct: false }
+                ]
+            },
+            {
+                id: 26,
+                type: 'content',
+                title: 'اليوم الخامس: الذكاء الاصطناعي',
+                subtitle: 'توظيف الذكاء الاصطناعي في إدارة السفر',
+                content: `
+                    <div class="content-section">
+                        <h2>🤖 مقدمة في الذكاء الاصطناعي</h2>
+                        <p>الذكاء الاصطناعي (AI) يغير صناعة السفر والسياحة بسرعة. يجب أن تفهم كيفية استخدامه لتحسين عملك.</p>
+                        <h3>🎯 تطبيقات الذكاء الاصطناعي في السفر:</h3>
+                        <ul>
+                            <li><strong>التنبؤ بالأسعار:</strong> استخدام AI للتنبؤ بتغيرات الأسعار</li>
+                            <li><strong>التوصيات الشخصية:</strong> اقتراح خيارات السفر المثالية</li>
+                            <li><strong>خدمة العملاء:</strong> chatbots للإجابة على الأسئلة</li>
+                            <li><strong>تحليل البيانات:</strong> فهم أنماط السفر</li>
+                            <li><strong>الأتمتة:</strong> تلقائية المهام الروتينية</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 27,
+                type: 'content',
+                title: 'أدوات الذكاء الاصطناعي العملية',
+                subtitle: 'أدوات يمكنك استخدامها اليوم',
+                content: `
+                    <div class="content-section">
+                        <h2>🛠️ أدوات AI المتاحة</h2>
+                        <h3>1. ChatGPT و Claude</h3>
+                        <p>استخدمها لكتابة رسائل احترافية، صياغة طلبات عروض الأسعار، وتحليل البيانات.</p>
+                        <h3>2. أدوات تحليل البيانات</h3>
+                        <p>استخدم Tableau أو Power BI لتصور بيانات السفر واكتشاف الأنماط.</p>
+                        <h3>3. أنظمة إدارة الحجوزات الذكية</h3>
+                        <p>أنظمة حديثة تستخدم AI للتنبؤ بالطلب وتحسين الأسعار.</p>
+                        <h3>4. أدوات الترجمة الذكية</h3>
+                        <p>ترجمة فورية للتواصل مع الموردين الدوليين.</p>
+                        <div class="highlight-box">
+                            <strong>💡 نصيحة:</strong>
+                            <p>ابدأ بأدوات بسيطة وسهلة الاستخدام. لا تحتاج إلى أن تكون خبيراً في البرمجة لاستخدام AI.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 28,
+                type: 'question',
+                question: 'أي من التالي ليس تطبيقاً للذكاء الاصطناعي في السفر؟',
+                options: [
+                    { text: 'التنبؤ بالأسعار', correct: false },
+                    { text: 'خدمة العملاء بـ Chatbots', correct: false },
+                    { text: 'الطبخ اليدوي', correct: true }
+                ]
+            },
+            {
+                id: 29,
+                type: 'content',
+                title: 'هندسة الأوامر (Prompt Engineering)',
+                subtitle: 'كيفية الحصول على أفضل النتائج من AI',
+                content: `
+                    <div class="content-section">
+                        <h2>🎯 مفهوم هندسة الأوامر</h2>
+                        <p>هندسة الأوامر هي فن صياغة الأسئلة والتعليمات بطريقة تحصل منها على أفضل النتائج من أدوات الذكاء الاصطناعي.</p>
+                        <h3>📋 مبادئ صياغة الأوامر الفعالة:</h3>
+                        <ul>
+                            <li><strong>كن محدداً:</strong> قدم تفاصيل دقيقة عما تريد</li>
+                            <li><strong>قدم السياق:</strong> أخبر AI عن الخلفية والهدف</li>
+                            <li><strong>حدد الصيغة:</strong> اطلب صيغة معينة للنتيجة (جدول، قائمة، إلخ)</li>
+                            <li><strong>أعط أمثلة:</strong> قدم أمثلة على ما تريد</li>
+                            <li><strong>اطلب التحسين:</strong> اطلب من AI تحسين النتيجة</li>
+                        </ul>
+                        <h3>💡 مثال على أمر فعال:</h3>
+                        <p style="background: var(--light-gray); padding: 15px; border-radius: 8px; margin: 15px 0; direction: ltr; text-align: left;">
+                            <strong>بدلاً من:</strong> "اكتب رسالة إلى فندق"<br>
+                            <strong>استخدم:</strong> "اكتب رسالة احترافية بالعربية إلى فندق الشيراتون في مسقط لطلب عرض سعر لـ 20 غرفة مفردة و 10 غرف مزدوجة للفترة من 15-20 مايو 2026. الرسالة يجب أن تكون رسمية وتتضمن متطلبات خاصة مثل الإفطار المجاني والنقل من المطار."
+                        </p>
+                    </div>
+                `
+            },
+            {
+                id: 30,
+                type: 'question',
+                question: 'ما هو أهم عنصر في صياغة أمر فعال للذكاء الاصطناعي؟',
+                options: [
+                    { text: 'الطول', correct: false },
+                    { text: 'التحديد والوضوح', correct: true },
+                    { text: 'استخدام كلمات معقدة', correct: false }
+                ]
+            },
+            {
+                id: 31,
+                type: 'content',
+                title: 'أتمتة المهام الروتينية',
+                subtitle: 'توفير الوقت والجهد باستخدام التكنولوجيا',
+                content: `
+                    <div class="content-section">
+                        <h2>⚙️ فوائد الأتمتة</h2>
+                        <p>الأتمتة تسمح لك بالتركيز على المهام الاستراتيجية بدلاً من المهام الروتينية.</p>
+                        <h3>🎯 مهام يمكن أتمتتها:</h3>
+                        <ul>
+                            <li><strong>إرسال الرسائل:</strong> رسائل تذكير تلقائية للموظفين والموردين</li>
+                            <li><strong>جمع البيانات:</strong> جمع تلقائي لبيانات الأسعار من مواقع الحجز</li>
+                            <li><strong>إنشاء التقارير:</strong> تقارير يومية أو أسبوعية تلقائية</li>
+                            <li><strong>معالجة الفواتير:</strong> فحص وتصنيف الفواتير تلقائياً</li>
+                            <li><strong>إدارة المخزون:</strong> تحديث تلقائي لحالة الحجوزات</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <strong>💡 الفائدة:</strong>
+                            <p>الأتمتة تقلل الأخطاء البشرية وتوفر الوقت. يمكنك توفير 10-20 ساعة أسبوعياً من خلال أتمتة المهام الروتينية.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 32,
+                type: 'question',
+                question: 'ما هي فائدة أتمتة المهام الروتينية؟',
+                options: [
+                    { text: 'توفير الوقت والتركيز على المهام الاستراتيجية', correct: true },
+                    { text: 'إضاعة الوقت', correct: false },
+                    { text: 'زيادة الأخطاء', correct: false }
+                ]
+            },
+            {
+                id: 33,
+                type: 'content',
+                title: 'تحليل البيانات والتنبؤات',
+                subtitle: 'استخدام البيانات لاتخاذ قرارات أفضل',
+                content: `
+                    <div class="content-section">
+                        <h2>📊 أهمية تحليل البيانات</h2>
+                        <p>البيانات هي الذهب الجديد. يجب أن تتعلم كيفية تحليل بيانات السفر لاتخاذ قرارات أفضل.</p>
+                        <h3>🎯 أنواع التحليلات:</h3>
+                        <ul>
+                            <li><strong>تحليل الأسعار:</strong> فهم اتجاهات الأسعار والتنبؤ بالتغيرات</li>
+                            <li><strong>تحليل الطلب:</strong> فهم متى يكون الطلب مرتفعاً ومنخفضاً</li>
+                            <li><strong>تحليل الأداء:</strong> قياس أداء الموردين والعمليات</li>
+                            <li><strong>تحليل التكاليف:</strong> فهم أين تذهب الأموال</li>
+                        </ul>
+                        <h3>💡 الفائدة:</h3>
+                        <ul>
+                            <li>توفير التكاليف من خلال حجز أذكى</li>
+                            <li>تحسين خدمة العملاء</li>
+                            <li>اكتشاف الفرص الجديدة</li>
+                            <li>اتخاذ قرارات مبنية على البيانات وليس الحدس</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 34,
+                type: 'question',
+                question: 'أي من التالي ليس نوعاً من التحليلات في السفر؟',
+                options: [
+                    { text: 'تحليل الأسعار', correct: false },
+                    { text: 'تحليل الطلب', correct: false },
+                    { text: 'تحليل الطبخ', correct: true }
+                ]
+            },
+            {
+                id: 35,
+                type: 'content',
+                title: 'الأمان والخصوصية في العصر الرقمي',
+                subtitle: 'حماية البيانات والمعلومات الحساسة',
+                content: `
+                    <div class="content-section">
+                        <h2>🔒 أهمية الأمان</h2>
+                        <p>تتعامل مع بيانات حساسة جداً (جوازات سفر، بطاقات ائتمان، معلومات شخصية). يجب أن تحمي هذه البيانات.</p>
+                        <h3>🛡️ ممارسات الأمان الأساسية:</h3>
+                        <ul>
+                            <li><strong>كلمات مرور قوية:</strong> استخدم كلمات مرور معقدة وفريدة</li>
+                            <li><strong>المصادقة متعددة العوامل:</strong> استخدم التحقق بخطوتين</li>
+                            <li><strong>تشفير البيانات:</strong> تأكد من تشفير البيانات الحساسة</li>
+                            <li><strong>النسخ الاحتياطية:</strong> احتفظ بنسخ احتياطية من البيانات</li>
+                            <li><strong>التحديثات:</strong> حدث البرامج والأنظمة بانتظام</li>
+                            <li><strong>الوعي:</strong> تدرب على التعرف على محاولات الاحتيال</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <strong>⚠️ تحذير:</strong>
+                            <p>لا تشارك أبداً كلمات المرور أو المعلومات الحساسة عبر البريد الإلكترونية أو الرسائل النصية.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 36,
+                type: 'question',
+                question: 'ما هي أفضل ممارسة للأمان الرقمي؟',
+                options: [
+                    { text: 'استخدام كلمات مرور بسيطة', correct: false },
+                    { text: 'استخدام كلمات مرور قوية والمصادقة متعددة العوامل', correct: true },
+                    { text: 'عدم تحديث البرامج', correct: false }
+                ]
+            },
+            {
+                id: 37,
+                type: 'content',
+                title: 'الاتجاهات المستقبلية في السفر',
+                subtitle: 'ما الذي ينتظرنا في المستقبل',
+                content: `
+                    <div class="content-section">
+                        <h2>🔮 الاتجاهات المستقبلية</h2>
+                        <h3>1. السفر المستدام</h3>
+                        <p>الاهتمام المتزايد بالسفر البيئي والمسؤول. الشركات والحكومات تطلب حجوزات أكثر استدامة.</p>
+                        <h3>2. التجارب الشخصية</h3>
+                        <p>بدلاً من الحجوزات العامة، سيكون هناك تركيز على تجارب مخصصة وفريدة.</p>
+                        <h3>3. السفر الهجين</h3>
+                        <p>مزيج من السفر الفعلي والافتراضي. الاجتماعات الهجينة ستقلل من الحاجة للسفر.</p>
+                        <h3>4. التكنولوجيا المتقدمة</h3>
+                        <p>الواقع المعزز والافتراضي ستغير طريقة حجز السفر وتجربة السفر.</p>
+                        <h3>5. الصحة والأمان</h3>
+                        <p>بعد COVID-19، الصحة والأمان أصبحت أولويات قصوى في السفر.</p>
+                    </div>
+                `
+            },
+            {
+                id: 38,
+                type: 'question',
+                question: 'أي من التالي يعتبر اتجاهاً مستقبلياً في السفر؟',
+                options: [
+                    { text: 'السفر المستدام والتجارب الشخصية', correct: true },
+                    { text: 'إلغاء كل الحجوزات', correct: false },
+                    { text: 'عدم الاهتمام بالصحة', correct: false }
+                ]
+            },
+            {
+                id: 39,
+                type: 'content',
+                title: 'الخلاصة والنقاط الرئيسية',
+                subtitle: 'ملخص البرنامج التدريبي الكامل',
+                content: `
+                    <div class="content-section">
+                        <h2>📌 النقاط الرئيسية من البرنامج</h2>
+                        <h3>اليوم الأول: الأساسيات</h3>
+                        <ul>
+                            <li>فهم الفرق بين السفر المؤسسي والشخصي</li>
+                            <li>إتقان دورة حياة الحجز الستة مراحل</li>
+                            <li>الامتثال الصارم للوائح الحكومية</li>
+                        </ul>
+                        <h3>اليوم الثاني: المهارات التفاوضية</h3>
+                        <ul>
+                            <li>استراتيجيات التفاوض الفعالة</li>
+                            <li>فهم المبيعات العكسية</li>
+                            <li>بناء علاقات قوية مع الموردين</li>
+                        </ul>
+                        <h3>اليوم الثالث: التواصل والعلاقات</h3>
+                        <ul>
+                            <li>التواصل الفعال مع جميع الأطراف</li>
+                            <li>الذكاء العاطفي في العمل</li>
+                            <li>حل المشاكل والشكاوى بكفاءة</li>
+                        </ul>
+                        <h3>اليوم الرابع: إدارة الفرق</h3>
+                        <ul>
+                            <li>أنماط القيادة المختلفة</li>
+                            <li>التطوير المستمر للفريق</li>
+                            <li>بناء ثقافة عمل إيجابية</li>
+                        </ul>
+                        <h3>اليوم الخامس: الذكاء الاصطناعي</h3>
+                        <ul>
+                            <li>تطبيقات AI في السفر</li>
+                            <li>هندسة الأوامر الفعالة</li>
+                            <li>أتمتة المهام وتحليل البيانات</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 40,
+                type: 'question',
+                question: 'كم عدد الأيام التدريبية في هذا البرنامج؟',
+                options: [
+                    { text: '3 أيام', correct: false },
+                    { text: '5 أيام', correct: true },
+                    { text: '10 أيام', correct: false }
+                ]
+            },
+            {
+                id: 41,
+                type: 'content',
+                title: 'الخطوات التالية والتطبيق العملي',
+                subtitle: 'كيفية تطبيق ما تعلمته في العمل',
+                content: `
+                    <div class="content-section">
+                        <h2>🚀 الخطوات التالية</h2>
+                        <h3>1. في الأسبوع الأول بعد التدريب:</h3>
+                        <ul>
+                            <li>راجع ملاحظاتك وأعد قراءة المواد</li>
+                            <li>طبق مبدأ واحد جديد في عملك اليومي</li>
+                            <li>اطلب تغذية راجعة من مديرك</li>
+                        </ul>
+                        <h3>2. في الشهر الأول:</h3>
+                        <ul>
+                            <li>طبق جميع المبادئ التي تعلمتها</li>
+                            <li>قس تحسن الأداء (توفير التكاليف، رضا العملاء)</li>
+                            <li>اطلب مساعدة من الزملاء إذا واجهت صعوبات</li>
+                        </ul>
+                        <h3>3. في الأشهر القادمة:</h3>
+                        <ul>
+                            <li>استمر في التعلم والتطوير</li>
+                            <li>شارك معرفتك مع الزملاء</li>
+                            <li>ابحث عن فرص للتطبيق المتقدم</li>
+                        </ul>
+                        <div class="highlight-box">
+                            <strong>💡 التذكير:</strong>
+                            <p>التعلم لا ينتهي. استمر في تطوير مهاراتك وابقَ محدثاً مع الاتجاهات الجديدة.</p>
+                        </div>
+                    </div>
+                `
+            },
+            {
+                id: 42,
+                type: 'question',
+                question: 'متى يجب أن تبدأ بتطبيق ما تعلمته؟',
+                options: [
+                    { text: 'بعد سنة', correct: false },
+                    { text: 'في الأسبوع الأول بعد التدريب', correct: true },
+                    { text: 'أبداً', correct: false }
+                ]
+            },
+            {
+                id: 43,
+                type: 'content',
+                title: 'الموارد والمراجع',
+                subtitle: 'مصادر إضافية للتعلم المستمر',
+                content: `
+                    <div class="content-section">
+                        <h2>📚 الموارد الموصى بها</h2>
+                        <h3>المواقع والمنصات:</h3>
+                        <ul>
+                            <li><strong>IATA (International Air Transport Association):</strong> معايير الصناعة</li>
+                            <li><strong>Amadeus و Sabre:</strong> أنظمة الحجز العالمية</li>
+                            <li><strong>LinkedIn Learning:</strong> دورات في إدارة السفر</li>
+                            <li><strong>Coursera و Udemy:</strong> دورات في الذكاء الاصطناعي</li>
+                        </ul>
+                        <h3>الكتب الموصى بها:</h3>
+                        <ul>
+                            <li>"Emotional Intelligence" - Daniel Goleman</li>
+                            <li>"Leaders Eat Last" - Simon Sinek</li>
+                            <li>"The Art of the Deal" - Donald Trump</li>
+                            <li>"Artificial Intelligence Basics" - Tom Taulli</li>
+                        </ul>
+                        <h3>المجتمعات المهنية:</h3>
+                        <ul>
+                            <li>جمعيات إدارة السفر المحلية والدولية</li>
+                            <li>مجموعات LinkedIn المتخصصة</li>
+                            <li>المؤتمرات والندوات الصناعية</li>
+                        </ul>
+                    </div>
+                `
+            },
+            {
+                id: 44,
+                type: 'question',
+                question: 'أي من التالي هو موقع موصى به للتعلم المستمر؟',
+                options: [
+                    { text: 'LinkedIn Learning و Coursera', correct: true },
+                    { text: 'مواقع الألعاب فقط', correct: false },
+                    { text: 'لا توجد موارد', correct: false }
+                ]
+            },
+            {
+                id: 45,
+                type: 'content',
+                title: 'شكراً لك - نهاية البرنامج',
+                subtitle: 'تم إكمال البرنامج التدريبي بنجاح',
+                content: `
+                    <div class="content-section" style="text-align: center;">
+                        <h2 style="font-size: 36px; color: var(--gold); margin-bottom: 20px;">🎉 تم إكمال البرنامج بنجاح!</h2>
+                        <p style="font-size: 18px; margin: 20px 0;">لقد أكملت برنامج التدريب المتكامل بنجاح!</p>
+                        <div class="highlight-box" style="text-align: center; margin: 30px 0;">
+                            <h3 style="color: var(--navy); font-size: 20px;">ما الذي تعلمته:</h3>
+                            <p style="margin: 10px 0;">✅ أسس إدارة اللوجستيات المؤسسية</p>
+                            <p style="margin: 10px 0;">✅ مهارات التفاوض والمبيعات العكسية</p>
+                            <p style="margin: 10px 0;">✅ التواصل الفعال والذكاء العاطفي</p>
+                            <p style="margin: 10px 0;">✅ إدارة الفرق والقيادة</p>
+                            <p style="margin: 10px 0;">✅ توظيف الذكاء الاصطناعي في العمل</p>
+                        </div>
+                        <p style="font-size: 16px; color: var(--text-gray); margin: 20px 0; line-height: 1.8;">
+                            أنت الآن مجهز بالمعرفة والمهارات اللازمة لتصبح محترفاً في إدارة اللوجستيات والحجوزات المؤسسية. استمر في التطبيق والتطوير المستمر.
+                        </p>
+                        <div style="margin-top: 40px; font-size: 24px; color: var(--gold);">
+                            🌍 جسور جلوبال - JUSOOR GLOBAL<br>
+                            <span style="font-size: 14px; color: var(--text-gray);">شكراً لك على المشاركة!</span>
+                        </div>
+                    </div>
+                `
+            }
+        ];
+
         let currentSlide = 1;
-        const totalSlides = 45; // Update this with actual number of slides
+
+        function createSlideHTML(slide) {
+            if (slide.type === 'title') {
+                return `
+                    <div class="slide-header" style="display: flex; flex-direction: column; justify-content: center; align-items: center; height: 100%;">
+                        <div style="text-align: center; animation: popIn 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);">
+                            <div style="font-size: 80px; margin-bottom: 20px; color: var(--gold);">🌍</div>
+                            <h1 style="font-size: 54px; margin-bottom: 15px;">${slide.title}</h1>
+                            <p style="font-size: 24px; color: var(--gold); margin-bottom: 20px;">${slide.subtitle}</p>
+                            <p style="font-size: 16px; color: #e0e0e0;">${slide.description}</p>
+                            <div style="margin-top: 40px; font-size: 14px; color: var(--gold); font-weight: 700;">
+                                ${slide.footer}
+                            </div>
+                        </div>
+                    </div>
+                `;
+            } else if (slide.type === 'content') {
+                return `
+                    <div class="slide-header">
+                        <div class="slide-number">الشريحة ${slide.id} من 45</div>
+                        <h1>${slide.title}</h1>
+                        <p>${slide.subtitle}</p>
+                    </div>
+                    <div class="slide-content">
+                        ${slide.content}
+                    </div>
+                `;
+            } else if (slide.type === 'question') {
+                return `
+                    <div class="slide-header">
+                        <div class="slide-number">سؤال تفاعلي</div>
+                        <h1>✅ اختبر فهمك</h1>
+                        <p>سؤال تدريبي</p>
+                    </div>
+                    <div class="slide-content">
+                        <div class="question-area">
+                            <div class="question-box">
+                                <div style="font-size: 60px; margin-bottom: 20px;">❓</div>
+                                <h2>${slide.question}</h2>
+                                <div class="question-options">
+                                    ${slide.options.map((opt, idx) => `
+                                        <button class="option-btn" onclick="checkAnswer(this, ${opt.correct}, ${slide.id})">
+                                            ${opt.text}
+                                        </button>
+                                    `).join('')}
+                                </div>
+                                <div class="feedback-text" id="feedback-${slide.id}"></div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            }
+        }
+
+        function initializeSlides() {
+            const container = document.getElementById('slideContainer');
+            slidesData.forEach(slide => {
+                const slideDiv = document.createElement('div');
+                slideDiv.className = 'slide' + (slide.id === 1 ? ' active' : '');
+                slideDiv.id = `slide-${slide.id}`;
+                slideDiv.innerHTML = createSlideHTML(slide);
+                container.appendChild(slideDiv);
+            });
+            document.getElementById('totalSlides').textContent = slidesData.length;
+        }
 
         function showSlide(n) {
             const slides = document.querySelectorAll('.slide');
@@ -960,23 +1361,14 @@
             if (n > slides.length) currentSlide = slides.length;
             if (n < 1) currentSlide = 1;
 
-            slides.forEach(slide => slide.classList.remove('active', 'exit-left', 'exit-right'));
-            
-            if (slides[currentSlide - 1]) {
-                slides[currentSlide - 1].classList.add('active');
-            }
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[currentSlide - 1].classList.add('active');
 
             document.getElementById('currentSlide').textContent = currentSlide;
             document.getElementById('prevBtn').disabled = currentSlide === 1;
             document.getElementById('nextBtn').disabled = currentSlide === slides.length;
 
-            // Initialize charts if they exist
-            if (currentSlide === 3) {
-                initBookingLifecycleChart();
-            }
-            if (currentSlide === 6) {
-                initComplianceChart();
-            }
+            window.scrollTo(0, 0);
         }
 
         function nextSlide() {
@@ -989,83 +1381,25 @@
             showSlide(currentSlide);
         }
 
-        function checkAnswer(button, isCorrect) {
-            const feedbackArea = button.closest('.slide-content').querySelector('[id^="feedbackArea"]');
+        function checkAnswer(button, isCorrect, slideId) {
+            const feedbackArea = document.getElementById(`feedback-${slideId}`);
+            const buttons = button.parentElement.querySelectorAll('.option-btn');
+            
+            buttons.forEach(btn => btn.disabled = true);
             
             if (isCorrect) {
-                feedbackArea.innerHTML = '<div style="color: var(--success); font-weight: 700; font-size: 16px; padding: 15px; background: rgba(39, 174, 96, 0.1); border-radius: 8px; border-right: 4px solid var(--success);">✅ إجابة صحيحة! ممتاز جداً! استمر في التركيز.</div>';
+                feedbackArea.innerHTML = '✅ إجابة صحيحة! ممتاز جداً! استمر في التركيز.';
+                feedbackArea.style.background = 'rgba(39, 174, 96, 0.1)';
+                feedbackArea.style.borderColor = 'var(--success)';
+                feedbackArea.style.color = 'var(--success)';
             } else {
-                feedbackArea.innerHTML = '<div style="color: var(--danger); font-weight: 700; font-size: 16px; padding: 15px; background: rgba(231, 76, 60, 0.1); border-radius: 8px; border-right: 4px solid var(--danger);">❌ إجابة غير صحيحة. حاول الانتباه أكثر للمحتوى التدريبي.</div>';
+                feedbackArea.innerHTML = '❌ إجابة غير صحيحة. حاول الانتباه أكثر للمحتوى التدريبي.';
+                feedbackArea.style.background = 'rgba(231, 76, 60, 0.1)';
+                feedbackArea.style.borderColor = 'var(--danger)';
+                feedbackArea.style.color = 'var(--danger)';
             }
-        }
-
-        function initBookingLifecycleChart() {
-            const ctx = document.getElementById('bookingLifecycleChart');
-            if (ctx && !window.bookingChartInitialized) {
-                new Chart(ctx, {
-                    type: 'bar',
-                    data: {
-                        labels: ['الطلب', 'التحقق', 'طلب العروض', 'المقارنة', 'التأكيد', 'التسوية'],
-                        datasets: [{
-                            label: 'مدة المرحلة (أيام)',
-                            data: [1, 2, 3, 2, 5, 1],
-                            backgroundColor: [
-                                'rgba(212, 175, 55, 0.8)',
-                                'rgba(0, 31, 63, 0.8)',
-                                'rgba(212, 175, 55, 0.8)',
-                                'rgba(0, 31, 63, 0.8)',
-                                'rgba(212, 175, 55, 0.8)',
-                                'rgba(0, 31, 63, 0.8)'
-                            ],
-                            borderColor: '#d4af37',
-                            borderWidth: 2
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: { display: false }
-                        },
-                        scales: {
-                            y: { beginAtZero: true }
-                        }
-                    }
-                });
-                window.bookingChartInitialized = true;
-            }
-        }
-
-        function initComplianceChart() {
-            const ctx = document.getElementById('complianceChart');
-            if (ctx && !window.complianceChartInitialized) {
-                new Chart(ctx, {
-                    type: 'doughnut',
-                    data: {
-                        labels: ['ممتثل تماماً', 'ممتثل جزئياً', 'غير ممتثل'],
-                        datasets: [{
-                            data: [75, 20, 5],
-                            backgroundColor: [
-                                'rgba(39, 174, 96, 0.8)',
-                                'rgba(243, 156, 18, 0.8)',
-                                'rgba(231, 76, 60, 0.8)'
-                            ],
-                            borderColor: '#fff',
-                            borderWidth: 2
-                        }]
-                    },
-                    options: {
-                        responsive: true,
-                        maintainAspectRatio: false,
-                        plugins: {
-                            legend: {
-                                position: 'bottom'
-                            }
-                        }
-                    }
-                });
-                window.complianceChartInitialized = true;
-            }
+            
+            feedbackArea.classList.add('show');
         }
 
         // Keyboard navigation
@@ -1075,6 +1409,7 @@
         });
 
         // Initialize
+        initializeSlides();
         showSlide(currentSlide);
     </script>
 </body>
